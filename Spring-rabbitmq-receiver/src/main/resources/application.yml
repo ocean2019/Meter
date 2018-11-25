@@ -1,0 +1,54 @@
+#配置数据源   localhost:3306   root  123456   47.94.6.7 wis wis
+spring:
+  datasource:
+    #url: jdbc:mysql://localhost:3306/jinan?serverTimezone=Hongkong&useUnicode=true&characterEncoding=utf8&useSSL=false&&rewriteBatchedStatements=true
+#    url: jdbc:mysql://47.94.6.7/jinan?serverTimezone=Hongkong&useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://39.107.253.175/jinan?serverTimezone=Hongkong&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: wis
+    password: wis
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    
+   
+  rabbitmq:
+#    host: 47.94.6.7
+    host: 39.107.253.175
+    virtual-host: /
+    port: 5672
+    username: wismq
+    password: wismq
+    publisher-confirms: true
+    publisher-returns: true
+    template:
+      retry:
+        enabled: true
+        initial-interval: 2000
+    listener:
+      direct:
+        acknowledge-mode: manual
+      simple:
+        acknowledge-mode: manual
+        
+
+
+        
+        
+server:
+  port: 8010
+
+logging:
+  level:
+   com.example.controller: debug
+  path: C:\F\tool\logg\jinan  
+  
+
+  
+  
+  
+  
+  
+  #自定义配置的变量
+allcontroller:
+           MSIndex: 5
+           count: 100
+           upCount: 50
